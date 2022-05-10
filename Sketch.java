@@ -7,7 +7,7 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
   // global variables
-	int intCircleYSpeed = 1;
+  int intCircleYSpeed = 1;
   int intPlayerX = 200;
   int intPlayerY = 350;
   int intPlayerLives = 3;
@@ -22,7 +22,7 @@ public class Sketch extends PApplet {
    * Called once at the beginning of execution, put your size all in this method
    */
   public void settings() {
-	// put your size call here
+  // put your size call here
     size(400, 400);
   }
 
@@ -125,8 +125,8 @@ public class Sketch extends PApplet {
     for(int index = 0; index < circleY.length; index++){
       if(dist(mouseX, mouseY, (circleX[index]), circleY[index]) <= 12.5){
         if(mousePressed){
-					ballHideStatus[index] = true;
-				}
+          ballHideStatus[index] = true;
+        }
       }
     }
 
