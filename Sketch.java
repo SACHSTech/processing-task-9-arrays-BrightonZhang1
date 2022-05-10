@@ -129,7 +129,7 @@ public class Sketch extends PApplet {
         }
       }
     }
-
+ 
     for(int index = 0; index < circleY.length; index++){
       if(ballHideStatus[index]){
         circleX[index] = -100;
