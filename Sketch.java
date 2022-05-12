@@ -63,14 +63,25 @@ public class Sketch extends PApplet {
       intCircleYSpeed --;
     }
     
-    // This section of the code creates new snowballs shown on screen using the circleX and circleY arrays
+    // This section of the code creates new snowballs shown on screen using the circleX and circleY arrays on the condition of ballHideStatus[]
     for (int index = 0; index < circleY.length; index++) {
       fill(255);
-      ellipse(circleX[index], circleY[index], 25, 25);
-      circleY[index] += intCircleYSpeed;
-      
-      if (circleY[index] > height) {
-        circleY[index] = 0;
+      if(!ballHideStatus[index]){
+        ellipse(circleX[index], circleY[index], 25, 25);
+        circleY[index] += intCircleYSpeed;
+        
+        if (circleY[index] > height) {
+          circleY[index] = 0;
+        }
+      }
+    }
+
+    // ballHideStatus[] tracks whether the user clicks on a snowball, and is responsible for making them disappear
+    for(int index = 0; index < circleY.length; index++){
+      if(dist(mouseX, mouseY, (circleX[index]), circleY[index]) <= 12.5){
+        if(mousePressed){
+          ballHideStatus[index] = true;
+        }
       }
     }
 
@@ -119,21 +130,6 @@ public class Sketch extends PApplet {
     if (intPlayerLives <= 0){
       fill(255);
       rect(0, 0, width, height);
-    }
-    
-    // ballHideStatus[] tracks whether the user clicks on a snowball, and is responsible for making them disappear
-    for(int index = 0; index < circleY.length; index++){
-      if(dist(mouseX, mouseY, (circleX[index]), circleY[index]) <= 12.5){
-        if(mousePressed){
-          ballHideStatus[index] = true;
-        }
-      }
-    }
- 
-    for(int index = 0; index < circleY.length; index++){
-      if(ballHideStatus[index]){
-        circleX[index] = -100;
-      }
     }
   }
 
