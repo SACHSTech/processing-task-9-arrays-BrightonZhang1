@@ -75,7 +75,7 @@ public class Sketch extends PApplet {
         }
       }
     }
-
+  
     // ballHideStatus[] tracks whether the user clicks on a snowball, and is responsible for making them disappear
     for(int index = 0; index < circleY.length; index++){
       if(dist(mouseX, mouseY, (circleX[index]), circleY[index]) <= 12.5){
